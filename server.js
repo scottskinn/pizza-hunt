@@ -9,7 +9,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-app.use(require('./routes'));
 
 // this sets up the connection to the mongoose db and uses the url we put or their own
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/pizza-hunt', {
@@ -20,5 +19,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/pizza-hunt', {
 
 // Use this to log mongo queries being executed!
 mongoose.set('debug', true);
+
+app.use(require('./routes'));
 
 app.listen(PORT, () => console.log(`🌍 Connected on localhost:${PORT}`));
