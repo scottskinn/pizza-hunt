@@ -1,5 +1,4 @@
 const express = require('express');
-// connect to mongoose
 const mongoose = require('mongoose');
 
 const app = express();
@@ -9,8 +8,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-
-// this sets up the connection to the mongoose db and uses the url we put or their own
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/pizza-hunt', {
   // useFindAndModify: false,
   useNewUrlParser: true,
