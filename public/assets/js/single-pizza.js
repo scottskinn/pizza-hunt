@@ -20,7 +20,7 @@ function getPizza() {
       if (!response.ok) {
         throw new Error({ message: 'Something went wrong!'});
       }
-      console.log(response);
+      // console.log(response);
       return response.json();
     })
     .then(printPizza)

@@ -13,7 +13,8 @@ const pizzaController = {
             .sort({ _id: -1 })
             .then(dbPizzaData => res.json(dbPizzaData))
             .catch(err => {
-                res.status(400).json(err);
+                console.log(err)
+                res.status(400);
             });
     },
 
@@ -34,7 +35,7 @@ const pizzaController = {
             })
             .catch(err => {
             console.log(err);
-            res.status(400).json(err);
+            res.status(400);
         });
     },
 
@@ -42,7 +43,7 @@ const pizzaController = {
     createPizza({ body }, res) {
         Pizza.create(body)
             .then(dbPizzaData => res.json(dbPizzaData))
-            .catch(err => res.status(400).json(err));
+            .catch(err => res.json(err));
     },
 
     // update pizza by id
